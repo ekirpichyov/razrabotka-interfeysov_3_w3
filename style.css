@@ -1,0 +1,340 @@
+body {
+  background: #eee;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  font-size: 125%;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  width: 1310px;
+  margin: 15px auto;
+  }
+
+.wrapper > input {
+  display: none;
+}
+
+/* Изменение цвета кнопок в меню при выборе */
+
+input#pers:checked ~ div > label#pers,
+input#brit:checked ~ div > label#brit,
+input#sphinx:checked ~ div > label#sphinx,
+input#rusblue:checked ~ div > label#rusblue {
+  background: #777;
+  transition: all .3s;
+  color: white;  
+}
+
+/* Прозрачность всем НЕ выбранным котикам */
+
+input#pers:checked ~ div div:not(#pers) > img,
+input#brit:checked ~ div div:not(#brit) > img,
+input#sphinx:checked ~ div div:not(#sphinx) > img,
+input#rusblue:checked ~ div div:not(#rusblue) > img {
+  filter: saturate(0) opacity(30%);
+  transition: all .3s;
+}
+
+/* Отмена прозрачности для возможности выбора 
+нескольких категорий */
+
+input#pers:checked ~ div div#pers > img,
+input#brit:checked ~ div div#brit > img,
+input#sphinx:checked ~ div div#sphinx > img,
+input#rusblue:checked ~ div div#rusblue > img {
+  filter: saturate(1) opacity(100%);
+  transition: all .3s;
+}
+
+/* Отключение вывода имени и возраста котика в случае,
+если категория не выбрана */
+
+input#pers:checked ~ div div:not(#pers) > .info,
+input#brit:checked ~ div div:not(#brit) > .info,
+input#sphinx:checked ~ div div:not(#sphinx) > .info,
+input#rusblue:checked ~ div div:not(#rusblue) > .info {
+  display: none;
+}
+
+/* Включение вывода имени и возраста котика в случае
+выбора нескольких категорий */
+
+input#pers:checked ~ div div#pers > .info,
+input#brit:checked ~ div div#brit > .info,
+input#sphinx:checked ~ div div#sphinx > .info,
+input#rusblue:checked ~ div div#rusblue > .info {
+  display: block !important;
+}
+
+.left-menu > label {
+  display: block;
+  font-size: 125%;
+  padding: 10px 10px 0 10px;
+  height: 50px;
+  border-bottom: 1px solid #aaa;
+}
+
+.left-menu {
+  width: 15%;
+  background: #ddd;
+  margin: 5px;
+}
+
+.cat-cards {
+  display: grid;
+  width: 70%;
+  grid-template:
+    "a b b" 250px
+    "c d e" 250px
+    "f f g" 250px
+    "h h h" 250px
+    / 33%;
+}
+
+.cat {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+  background: white;
+}
+
+.cat img {
+  height: auto;
+  width: 100%;
+}
+
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
+.d {
+  grid-area: d;
+}
+.e {
+  grid-area: e;
+}
+.f {
+  grid-area: f;
+}
+.g {
+  grid-area: g;
+}
+.h {
+  grid-area: h;
+}
+
+.info {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  height: 50px;
+  max-width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  bottom: 25px;
+  left: 0;
+  background: rgba(0, 0, 0, .3);
+  z-index: 999;
+  color: white;
+  font-size: 150%;
+  padding: 10px 20px 0 20px;
+}
+
+.cat:hover > .info {
+  opacity: 1;
+  transition: all .4s;
+}
+
+h3 {
+  margin: 0 10px;  
+  font-weight: 400;
+  font-size: 150%;
+  color: #c22;
+}
+
+.right-menu {
+  width: 15%;
+  height: 100%;
+  background: #ddd;
+  margin: 5px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-breed {
+  position: relative;
+  height: 50px;
+  margin: 5px 5px 10px 10px;
+}
+
+.rating-gradient {
+  height: 15px;
+  max-width: 125px;
+  margin: 10px 0 0 0;
+  border: 1px solid #aaa;
+}
+
+label[for='highest'] {
+  display: inline-block;
+ margin: 5px 0px 15px 60px; 
+}
+
+input#highest:checked + div > .rating-breed[rating='1'] {
+  order: 10;
+}
+input#highest:checked + div > .rating-breed[rating='2'] {
+  order: 9;
+}
+input#highest:checked + div > .rating-breed[rating='3'] {
+  order: 8;
+}
+input#highest:checked + div > .rating-breed[rating='4'] {
+  order: 7;
+}
+input#highest:checked + div > .rating-breed[rating='5'] {
+  order: 6;
+}
+input#highest:checked + div > .rating-breed[rating='6'] {
+  order: 5;
+}
+input#highest:checked + div > .rating-breed[rating='7'] {
+  order: 4;
+}
+input#highest:checked + div > .rating-breed[rating='8'] {
+  order: 3;
+}
+input#highest:checked + div > .rating-breed[rating='9'] {
+  order: 2;
+}
+input#highest:checked + div > .rating-breed[rating='10'] {
+  order: 1;
+}
+
+.rating-breed[rating='10'] .rating-gradient,
+.rating-breed[rating='9'] .rating-gradient {
+  background: linear-gradient(to right, #070 0%,#fff 100%);
+}
+
+.rating-breed[rating='8'] .rating-gradient,
+.rating-breed[rating='7'] .rating-gradient,
+.rating-breed[rating='6'] .rating-gradient,
+.rating-breed[rating='5'] .rating-gradient {
+  background: linear-gradient(to right, #ee0 0%,#fff 100%);
+}
+
+.rating-breed[rating='4'] .rating-gradient,
+.rating-breed[rating='3'] .rating-gradient,
+.rating-breed[rating='2'] .rating-gradient,
+.rating-breed[rating='1'] .rating-gradient {
+  background: linear-gradient(to right, #a00 0%,#fff 100%);
+}
+
+/* Ширина полоски рейтинга */
+
+.rating-breed[rating='1'] .rating-gradient {
+  width: 12.5px;
+}
+.rating-breed[rating='2'] .rating-gradient {
+  width: 25px;
+}
+.rating-breed[rating='3'] .rating-gradient {
+  width: 37.5px;
+}
+.rating-breed[rating='4'] .rating-gradient {
+  width: 50px;
+}
+.rating-breed[rating='5'] .rating-gradient {
+  width: 62.5px;
+}
+.rating-breed[rating='6'] .rating-gradient {
+  width: 75px;
+}
+.rating-breed[rating='7'] .rating-gradient {
+  width: 87.5px;
+}
+.rating-breed[rating='8'] .rating-gradient {
+  width: 100px;
+}
+.rating-breed[rating='9'] .rating-gradient {
+  width: 112.5px;
+}
+.rating-breed[rating='10'] .rating-gradient {
+  width: 125px;
+}
+
+.rating-value {
+  position: absolute;
+  display: block;
+  right: 5%;
+  top: 50%;
+  font-weight: 500;
+  font-size: 125%;
+}
+
+/* Добавляется значение в .rating-value */
+
+.rating-breed[rating='1'] .rating-value::after {
+  content: "1"
+}
+.rating-breed[rating='2'] .rating-value::after {
+  content: "2"
+}
+.rating-breed[rating='3'] .rating-value::after {
+  content: "3"
+}
+.rating-breed[rating='4'] .rating-value::after {
+  content: "4"
+}
+.rating-breed[rating='5'] .rating-value::after {
+  content: "5"
+}
+.rating-breed[rating='6'] .rating-value::after {
+  content: "6"
+}
+.rating-breed[rating='7'] .rating-value::after {
+  content: "7"
+}
+.rating-breed[rating='8'] .rating-value::after {
+  content: "8"
+}
+.rating-breed[rating='9'] .rating-value::after {
+  content: "9"
+}
+.rating-breed[rating='10'] .rating-value::after {
+  content: "10"
+}
+
+footer {
+  display: block;
+  height: 25px;
+  font-size: 90%;
+  border-top: 1px solid #aaa;
+  padding: 10px;
+}
+
+footer > div {
+  position: relative;
+  max-width: 1310px;
+  margin: 0 auto;
+}
+
+footer span:last-child {
+  color: blue;
+  float: right;
+}

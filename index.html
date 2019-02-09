@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Бабуленькины котятки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Бабуленькины котятки</h1>
+    </header>
+
+    <div class="wrapper">
+        <input type="checkbox" name="breeds" id="pers">
+        <input type="checkbox" name="breeds" id="brit">
+        <input type="checkbox" name="breeds" id="sphinx">
+        <input type="checkbox" name="breeds" id="rusblue">
+        <div class="left-menu">
+            <label for="pers" id="pers">Персидские</label>
+            <label for="brit" id="brit">Британские</label>
+            <label for="sphinx" id="sphinx">Сфинксы</label>
+            <label for="rusblue" id="rusblue">Русская голубая</label>
+        </div>
+        <div class="cat-cards">
+            <div class="cat a" id="pers">
+                <img src="images\1.jpg" alt="">
+                <div class="info">Гоша, 4 года</div>
+            </div>
+            <div class="cat b" id="brit">
+                <img src="images\2.jpg" alt="">
+                <div class="info">Вася, 6 месяцев</div>
+            </div>
+            <div class="cat c" id="brit">
+                <img src="images\3.jpg" alt="">
+                <div class="info">Кузя, 5 лет</div>
+            </div>
+            <div class="cat d" id="sphinx">
+                <img src="images\4.jpg" alt="">
+                <div class="info">Дуся, 1 год</div>
+            </div>
+            <div class="cat e" id="sphinx">
+                <img src="images\5.jpg" alt="">
+                <div class="info">Макс, 2 года</div>
+            </div>
+            <div class="cat f" id="pers">
+                <img src="images\6.jpg" alt="">
+                <div class="info">Пушок, 8 месяцев</div>
+            </div>
+            <div class="cat g" id="brit">
+                <img src="images\7.jpg" alt="">
+                <div class="info">Мурзик, 1 год и 5 месяцев</div>
+            </div>
+            <div class="cat h" id="rusblue">
+                <img src="images\8.jpg" alt="">
+                <div class="info">Маруся, 5 месяцев</div>
+            </div>
+
+        </div>
+
+        <div class="right-menu">
+            <span><h3>РЕЙТИНГ</h3></span>
+            <label for="highest">по убыванию</label>
+            <input type="checkbox" name="highest" id="highest">
+            <div class="rating">
+                <!-- рейтинг ставится в атрибут rating у класса rating-breed для сортировки 
+                    по убыванию и через css попадает в класс rating-value -->
+                <div class="rating-breed" rating="7">
+                    <div class="rating-breed-name">Персидские</div>
+                    <div class="rating-value"></div>
+                    <div class="rating-gradient"></div>
+                </div>
+                <div class="rating-breed" rating="4">
+                    <div class="rating-breed-name">Британские</div>
+                    <div class="rating-value"></div>
+                    <div class="rating-gradient"></div>
+                </div>
+                <div class="rating-breed" rating="10">
+                    <div class="rating-breed-name">Сфинксы</div>
+                    <div class="rating-value"></div>
+                    <div class="rating-gradient"></div>
+                </div>
+                <div class="rating-breed" rating="9">
+                    <div class="rating-breed-name">Русская голубая</div>
+                    <div class="rating-value"></div>
+                    <div class="rating-gradient"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <span>© ООО Бабуленькины котятки, 2015</span>
+            <span>Наш адрес: улица Котовая, д.5</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
